@@ -22,7 +22,7 @@ function calculateTriangles(height, radius, segments) {
         const x2 = radius * Math.cos(angle2);
         const y2 = radius * Math.sin(angle2);
 
-        triangles.push({ x1, y1, x2, y2, height });
+        triangles.push({x1, y1, x2, y2, height});
     }
 
     return triangles;
@@ -33,7 +33,7 @@ app.post('/calculate-cone', (req, res) => {
     const radius = parseFloat(req.body.radius);
     const segments = parseFloat(req.body.segments);
     if (isNaN(height) || isNaN(radius) || isNaN(segments)) {
-        res.status(400).json({ error: 'Пожалуйста, введите числовые значения для длины и ширины.' });
+        res.status(400).json({error: 'Пожалуйста, введите числовые значения для длины и ширины.'});
     } else {
         response = calculateTriangles(height, radius, segments)
         res.json(response);

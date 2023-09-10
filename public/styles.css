@@ -28,9 +28,9 @@ input {
 }
 
 #scene-container {
-  display: flex; /* Используем flex-контейнер */
-  justify-content: center; /* Выравниваем по горизонтали по центру */
-  align-items: center; /* Выравниваем по вертикали по центру */
+    display: flex; /* Используем flex-контейнер */
+    justify-content: center; /* Выравниваем по горизонтали по центру */
+    align-items: center; /* Выравниваем по вертикали по центру */
     margin-top: 20px;
     min-height: 500px;
 }

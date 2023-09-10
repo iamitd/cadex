@@ -25,29 +25,25 @@ controls.autoRotate = false;
 controls.maxDistance = 100;
 controls.minDistance = 10;
 
-// Создаем материал конуса
-const coneMaterial = new THREE.MeshBasicMaterial({color: 0xffff00});
 
-// Функция для создания конусов из данных
-function createConesFromData(height,radius,segments) {
-    while(scene.children.length > 0){
-    scene.remove(scene.children[0]);
-}
-    const geometry = new THREE.ConeGeometry(radius,height,segments);
+function createConesFromData(height, radius, segments) {
+    while (scene.children.length > 0) {
+        scene.remove(scene.children[0]);
+    }
+    const geometry = new THREE.ConeGeometry(radius, height, segments);
     const material = new THREE.MeshBasicMaterial({color: 0xC0C0C0});
     const cone = new THREE.Mesh(geometry, material);
     // Создаем материал для линий с подсветкой
-    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Зеленая подсветка
+    const lineMaterial = new THREE.LineBasicMaterial({color: 0x000000}); // Зеленая подсветка
 
-     const edgesGeometry = new THREE.EdgesGeometry(geometry);
+    const edgesGeometry = new THREE.EdgesGeometry(geometry);
 
     // Создаем линейную модель боковых линий конуса
     const lines = new THREE.LineSegments(edgesGeometry, lineMaterial);
 
-    // Добавляем линейную модель и меш конуса в сцену
     scene.add(lines);
     scene.add(cone);
-    animate(); // Не забываем запустить анимацию после обновления сцены
+    animate();
 }
 
 // Функция для анимации
@@ -83,7 +79,7 @@ coneForm.addEventListener('submit', (event) => {
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
-            createConesFromData(height,radius,segments);
+            createConesFromData(height, radius, segments);
         })
         .catch((error) => {
             console.error('Ошибка при отправке запроса:', error);
